@@ -1,8 +1,6 @@
 // src/reducers/index.js
-const initialState = {
-    dishes: [],
-  };
-  
+import { BrowserRouter as Router } from 'react-router-dom';
+
   const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'FETCH_DISHES':
@@ -11,6 +9,19 @@ const initialState = {
         return state;
     }
   };
+
+  const root = document.getElementById('root');
+
+// Use createRoot em vez de ReactDOM.render
+const reactRoot = ReactDOM.createRoot(root);
+
+reactRoot.render(
+  <Router>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Router>,
+);
   
   export default rootReducer;
   
